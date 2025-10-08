@@ -13,9 +13,6 @@
 float Mean(int number_, int number2_, int number3_, int number4_);
 float stdDevPop(int number_, int number2_, int number3_, int number4_, int mean_);
 
-//Function declaration for user input numbers
-float iMean(int inumber1_, int inumber2_, int inumber3_, int inumber4_);
-float istdDevPop(int inumber1_, int inumber2_, int inumber3_, int inumber4_, int imean_);
 
 int main()
 {
@@ -79,14 +76,14 @@ int main()
     outFile.open("/Users/ethanbiggar/Desktop/Computer Science/Lab 3/Lab 3/outMeanStd.dat");
     outFile << " The mean of the four numbers from the file is: " << Mean(number, number2, number3, number4) << std::endl;
     outFile << " The standard deviation of the four numbers from the file is: " << stdDevPop(number, number2, number3, number4, Mean(number, number2, number3, number4))<< std::endl;
-    outFile << "The mean of the four numbers from the user input is: " << iMean(inumber1, inumber2, inumber3, inumber4) << std::endl;
-    outFile << "The standard deviation of the four numbers from the user input is: " << istdDevPop(inumber1, inumber2, inumber3, inumber4, iMean(inumber1, inumber2, inumber3, inumber4))<< std::endl;
+    outFile << "The mean of the four numbers from the user input is: " << Mean(inumber1, inumber2, inumber3, inumber4) << std::endl;
+    outFile << "The standard deviation of the four numbers from the user input is: " << stdDevPop(inumber1, inumber2, inumber3, inumber4, Mean(inumber1, inumber2, inumber3, inumber4))<< std::endl;
     
     // Displays text and calculations for the mean and standard deviation
     std::cout << "The mean of the integers from the file is: " << Mean(number, number2, number3, number4) << std::endl;
     std::cout << "The standard deviation of the integers from the file is: " << stdDevPop(number, number2, number3, number4, Mean(number, number2, number3, number4)) << std::endl;
-    std::cout<< "The mean of the four integers from the user input is: " << iMean(inumber1, inumber2, inumber3, inumber4) << std::endl;
-    std::cout << "The standard deviation of the four integers from the user input is: " << istdDevPop(inumber1, inumber2, inumber3, inumber4, iMean(inumber1, inumber2, inumber3, inumber4))<< std::endl;
+    std::cout<< "The mean of the four integers from the user input is: " << Mean(inumber1, inumber2, inumber3, inumber4) << std::endl;
+    std::cout << "The standard deviation of the four integers from the user input is: " << stdDevPop(inumber1, inumber2, inumber3, inumber4, Mean(inumber1, inumber2, inumber3, inumber4))<< std::endl;
 
     return 0;
 }
@@ -102,13 +99,3 @@ float stdDevPop(int number_, int number2_, int number3_, int number4_, int mean_
     return sqrt((pow(number_ - mean_, 2) + pow(number2_ - (mean_), 2) + pow(number3_ - mean_, 2) + pow(number4_ - mean_, 2)) / 4.0);
 }
 
-//Calculates the mean and population standard deviation of the four numbers from the users input
-float iMean(int inumber1_, int inumber2_, int inumber3_, int inumber4_)
-{
-    return (inumber1_ + inumber2_ + inumber3_ + inumber4_) / 4.0;
-}
-
-float istdDevPop(int inumber1_, int inumber2_, int inumber3_, int inumber4_, int imean_)
-{
-    return sqrt((pow(inumber1_ - imean_, 2) + pow(inumber2_ - (imean_), 2) + pow(inumber3_ - imean_, 2) + pow(inumber4_ - imean_, 2)) / 4.0);
-}
